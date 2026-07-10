@@ -1,230 +1,86 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bastard's Autohaus | Premium Cars</title>
-    <style>
-        :root {
-            --primary: #2c3e50;
-            --accent: #e74c3c;
-            --light: #f4f4f4;
-            --white: #ffffff;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            background-color: var(--light);
-            color: var(--primary);
-        }
-
-        /* Header & Navigation */
-        header {
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo-placeholder {
-            font-weight: bold;
-            font-size: 1.5rem;
-            border: 2px solid var(--accent);
-            padding: 5px 15px;
-        }
-
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
-        }
-
-        nav a:hover {
-            color: var(--accent);
-        }
-
-        /* Search Bar */
-        .search-container {
-            background: var(--white);
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        #carSearch {
-            padding: 10px;
-            width: 60%;
-            max-width: 500px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        /* Catalog Grid */
-        .catalog {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 2rem 5%;
-        }
-
-        .car-card {
-            background: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
-        }
-
-        .car-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .car-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            background: #ddd;
-        }
-
-        .car-info {
-            padding: 15px;
-        }
-
-        .car-price {
-            color: var(--accent);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        /* Sections */
-        section {
-            padding: 3rem 5%;
-            background: var(--white);
-            margin-top: 20px;
-        }
-
-        .staff-grid {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .staff-member {
-            text-align: center;
-            flex: 1;
-            min-width: 150px;
-        }
-
-        .staff-member img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: #ccc;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: var(--primary);
-            color: var(--white);
-            margin-top: 40px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoHaus Spectre – Gebraucht- & Neuwagen</title>
+  <meta name="description" content="Entdecken Sie unsere Fahrzeuge: BMW, Audi, Mercedes, Porsche u.v.m. Jetzt online stöbern und Details ansehen.">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<header>
-    <div class="logo-placeholder">LOGO</div>
-    <nav>
-        <a href="#katalog">Katalog</a>
-        <a href="#personal">Personal</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark">◈</span>
+        <span>AutoHaus <strong>Spectre</strong></span>
+      </a>
+      <nav class="nav">
+        <a href="#fahrzeuge">Fahrzeuge</a>
         <a href="#kontakt">Kontakt</a>
-    </nav>
-</header>
+        <a class="btn btn-ghost" href="tel:+4930123456">☎ 030 – 123 456</a>
+      </nav>
+    </div>
+  </header>
 
-<div class="search-container">
-    <h2>Finde dein Traumauto</h2>
-    <input type="text" id="carSearch" placeholder="Modell oder Marke suchen..." onkeyup="filterCars()">
-</div>
+  <section class="hero" id="top">
+    <div class="container hero-inner">
+      <h1>Finden Sie Ihr nächstes Auto.</h1>
+      <p>Geprüfte Fahrzeuge, transparente Preise, faire Beratung. Stöbern Sie durch unseren Bestand und klicken Sie ein Fahrzeug an, um alle Details zu sehen.</p>
+      <a class="btn btn-primary" href="#fahrzeuge">Fahrzeuge entdecken ↓</a>
+      <div class="hero-stats">
+        <div><strong id="stat-count">0</strong><span>Fahrzeuge im Bestand</span></div>
+        <div><strong>24 Mon.</strong><span>Garantie möglich</span></div>
+        <div><strong>0 %</strong><span>Finanzierung ab</span></div>
+      </div>
+    </div>
+  </section>
 
-<div class="catalog" id="carCatalog">
-    <div class="car-card">
-        <img src="https://picsum.photos/id/1071/400/250" alt="Auto">
-        <div class="car-info">
-            <h3>Sport Coupé 2024</h3>
-            <p>6 Zylinder, 450 PS, Vollausstattung.</p>
-            <p class="car-price">54.900 €</p>
-        </div>
+  <main class="container" id="fahrzeuge">
+    <div class="toolbar">
+      <input type="search" id="search" placeholder="🔍 Marke oder Modell suchen…" aria-label="Suche">
+      <select id="filter-fuel" aria-label="Kraftstoff filtern">
+        <option value="">Alle Kraftstoffe</option>
+      </select>
+      <select id="filter-body" aria-label="Karosserie filtern">
+        <option value="">Alle Bauformen</option>
+      </select>
+      <select id="sort" aria-label="Sortieren">
+        <option value="price-asc">Preis aufsteigend</option>
+        <option value="price-desc">Preis absteigend</option>
+        <option value="year-desc">Neueste zuerst</option>
+        <option value="mileage-asc">Wenig km zuerst</option>
+      </select>
     </div>
 
-    <div class="car-card">
-        <img src="https://picsum.photos/id/1072/400/250" alt="Auto">
-        <div class="car-info">
-            <h3>Elektro SUV X</h3>
-            <p>500km Reichweite, Allrad, Massagesitze.</p>
-            <p class="car-price">68.500 €</p>
-        </div>
+    <p class="result-count" id="result-count"></p>
+    <div class="grid" id="car-grid"></div>
+    <p class="empty" id="empty" hidden>Keine Fahrzeuge gefunden. Bitte Filter anpassen.</p>
+  </main>
+
+  <section class="contact" id="kontakt">
+    <div class="container">
+      <h2>Kontakt & Besuch</h2>
+      <p>AutoHaus Spectre · Musterstraße 12 · 10115 Berlin · Mo–Sa 9–19 Uhr</p>
+      <p>Telefon 030 – 123 456 · info@autohaus-spectre.de</p>
     </div>
+  </section>
 
-    <div class="car-card">
-        <img src="https://picsum.photos/id/183/400/250" alt="Auto">
-        <div class="car-info">
-            <h3>Classic Roadster</h3>
-            <p>Baujahr 1985, Top Zustand, H-Zulassung.</p>
-            <p class="car-price">29.000 €</p>
-        </div>
+  <footer class="site-footer">
+    <div class="container">
+      <span>© <span id="year"></span> AutoHaus Spectre – Alle Angaben ohne Gewähr.</span>
     </div>
-</div>
+  </footer>
 
-<section id="personal">
-    <h2>Unser Team</h2>
-    <div class="staff-grid">
-        <div class="staff-member">
-            <img src="https://i.pravatar.cc/100?u=1" alt="Personal">
-            <p><strong>Max Mustermann</strong><br>Verkaufsleiter</p>
-        </div>
-        <div class="staff-member">
-            <img src="https://i.pravatar.cc/100?u=2" alt="Personal">
-            <p><strong>Erika Schmidt</strong><br>Finanzierung</p>
-        </div>
+  <!-- Detail-Modal -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" data-close aria-label="Schließen">✕</button>
+      <div id="modal-content"></div>
     </div>
-</section>
+  </div>
 
-<section id="kontakt">
-    <h2>Kontakt</h2>
-    <p>Telefon: +49 123 456 789</p>
-    <p>Email: verkauf@autohaus-bastard.de</p>
-    <p>Adresse: Autostraße 1, 12345 Berlin</p>
-</section>
-
-<footer>
-    &copy; 2026 Autohaus Bastard - Alle Rechte vorbehalten.
-</footer>
-
-<script>
-    function filterCars() {
-        let input = document.getElementById('carSearch').value.toLowerCase();
-        let cards = document.getElementsByClassName('car-card');
-
-        for (let i = 0; i < cards.length; i++) {
-            let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
-            let desc = cards[i].getElementsByTagName('p')[0].innerText.toLowerCase();
-            
-            if (title.includes(input) || desc.includes(input)) {
-                cards[i].style.display = "";
-            } else {
-                cards[i].style.display = "none";
-            }
-        }
-    }
-</script>
-
+  <script src="data.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
